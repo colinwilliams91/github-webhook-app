@@ -33,7 +33,7 @@ const handlePullRequestOpened = async ({octokit, payload}) => {
       issue_number: payload.pull_request.number,
       body: messageForNewPRs,
       headers: {
-        "x-github-api-version": "2022-11-28",
+        "x-github-api-version": "2022-11-28", // X-Accepted-GitHub-Permissions <-- add this header as well to get a response of all required permissions for the GH API request!
       },
     });
   } catch (error) {
