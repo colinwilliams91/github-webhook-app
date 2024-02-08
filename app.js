@@ -43,3 +43,5 @@ async function handlePullRequestOpened({octokit, payload}) {
     console.error(error);
   }
 };
+
+app.webhooks.on("pull_request.opened", handlePullRequestOpened);
