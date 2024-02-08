@@ -1,0 +1,19 @@
+{
+  "name": "github-webhook-app",
+  "version": "1.0.0",
+  "description": "practice making an app integrating with github",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.1",
+    "octokit": "^3.1.2"
+  },
+  "devDependencies": {
+    "smee-client": "^2.0.1"
+  }
+}
