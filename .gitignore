@@ -1,3 +1,6 @@
+# Configuration
+*.pem
+
 # Logs
 logs
 *.log
