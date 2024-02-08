@@ -70,18 +70,7 @@ const middleware = createNodeMiddleware(app.webhooks, {path});
  * - Trigger the corresponding webhook event handler.
 */
 
-const server = http.createServer(middleware).listen(port, () => {
+http.createServer(middleware).listen(port, () => {
   console.log(`Server is listening for events at: ${localWebhookUrl}`);
   console.log("Press Ctrl + C to quit.");
-});
-
-/* EADDRINUSE Error Handling */
-server.on('error', (e) => {
-  if (e.code === 'EADDRINUSE') {
-    console.error('Address in use, retrying...');
-    setTimeout(() => {
-      server.close();
-      server.listen(port, host);
-    }, 1000);
-  }
 });
