@@ -13,6 +13,7 @@ const privateKeyPath = process.env.PRIVATE_KEY_PATH;
 
 const privateKey = fs.readFileSync(privateKeyPath, "utf-8");
 
+/* Octokit App Class */
 const app = new App({
   appId: appId,
   privateKey: privateKey,
