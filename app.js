@@ -45,3 +45,11 @@ async function handlePullRequestOpened({octokit, payload}) {
 };
 
 app.webhooks.on("pull_request.opened", handlePullRequestOpened);
+
+app.webhooks.onError((error) => {
+  if (error.name === "AggregateError") {
+    console.error(`Error processing request: ${error.event}`);
+  } else {
+    console.error(error);
+  }
+});
