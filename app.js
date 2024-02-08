@@ -53,3 +53,12 @@ app.webhooks.onError((error) => {
     console.error(error);
   }
 });
+
+/* Server Set Up */
+const port = 3000;
+const host = "localhost";
+const path = "/api/webhook";
+const localWebhookUrl = `http://${host}:${port}${path}`;
+
+
+const middleware = createNodeMiddleware(app.webhooks, {path});
