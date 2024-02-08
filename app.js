@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import { App } from "octokit";
-import { createNodeMiddleware } from "octokit";
+import { createNodeMiddleware } from "@octokit/webhooks";
 import fs from "fs";
 import http from "http";
 
@@ -24,7 +24,7 @@ const app = new App({
 
 const messageForNewPRs = "Thanks for opening a new PR! Please follow our contributing guidelines to make your PR easier to review.";
 
-async function handlePullRequestOpened({octokit, payload}) {
+const handlePullRequestOpened = async ({octokit, payload}) => {
   console.log(`Received a pull request event for #${payload.pull_request.number}`);
   try {
     await octokit.request("POST /repos/{owner}/{repo}/issues/{issue_number}/comments", {
@@ -34,17 +34,25 @@ async function handlePullRequestOpened({octokit, payload}) {
       body: messageForNewPRs,
       headers: {
         "x-github-api-version": "2022-11-28",
-      }
+      },
     });
   } catch (error) {
     if (error.response) {
-      console.error(`Error! Status: ${error.response.status}. Message: ${error.response.data.message}`);
+      console.error(`Error! Status: ${error.response.status}. Message: ${error.response.data.message}`)
     }
-    console.error(error);
+    console.error(error)
   }
 };
 
 app.webhooks.on("pull_request.opened", handlePullRequestOpened);
+
+app.webhooks.on("issues.opened", ({ octokit, payload }) => {
+  return octokit.rest.issues.createComment({
+    owner: payload.repository.owner.login,
+    repo: payload.repository.name,
+    body: "Hello, World!",
+  });
+});
 
 app.webhooks.onError((error) => {
   if (error.name === "AggregateError") {
