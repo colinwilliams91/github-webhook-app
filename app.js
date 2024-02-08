@@ -70,3 +70,9 @@ const middleware = createNodeMiddleware(app.webhooks, {path});
  * - Trigger the corresponding webhook event handler.
 */
 
+http.createServer(middleware).listen(port, () => {
+  console.log(`Server is listening for events at: ${localWebhookUrl}`);
+  console.log("Press Ctrl + C to quit.");
+});
+
+
