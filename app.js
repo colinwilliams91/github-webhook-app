@@ -73,7 +73,7 @@ const middleware = createNodeMiddleware(app.webhooks, {path});
 const server = http.createServer(middleware).listen(port, () => {
   console.log(`Server is listening for events at: ${localWebhookUrl}`);
   console.log("Press Ctrl + C to quit.");
-});
+})();
 
 /* EADDRINUSE Error Handling */
 server.on('error', (e) => {
