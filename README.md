@@ -14,3 +14,8 @@ practice making an app integrating with github
 
   ## GitHub App Auth
   - [Example](https://github.com/octokit/octokit.js?tab=readme-ov-file#authentication)
+
+  ## Deploying
+- [Update the webhook URL](https://docs.github.com/en/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events#update-the-webhook-url)
+  - Once you have a server that is set up to receive webhook traffic from GitHub, update the webhook URL in your app settings. You should not use Smee.io to forward your webhooks in production.
+  - [Share on marketplace](https://docs.github.com/en/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events#share-your-app)
