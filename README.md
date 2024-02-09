@@ -10,3 +10,7 @@ practice making an app integrating with github
   - [Docs](https://docs.github.com/en/rest/using-the-rest-api/troubleshooting-the-rest-api?apiVersion=2022-11-28#user-agent-required)
 - Validation Failed error: response body will include a `code` which correlate to the table in below documentation:
   - [Docs](https://docs.github.com/en/rest/using-the-rest-api/troubleshooting-the-rest-api?apiVersion=2022-11-28#validation-failed)
+
+
+  ## GitHub App Auth
+  - [Example](https://github.com/octokit/octokit.js?tab=readme-ov-file#authentication)
