@@ -65,7 +65,7 @@ app.webhooks.onError((error) => {
 /* Server Set Up */
 const port = process.env.PORT;
 const host = process.env.NODE_ENV === "production" ? "0.0.0.0" : "localhost";
-const path = process.env.PATH;
+const path = process.env.API_PATH;
 const localWebhookUrl = `http://${host}:${port}${path}`;
 
 
